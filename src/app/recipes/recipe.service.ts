@@ -12,7 +12,7 @@ export class RecipeService {
  private recipes : Recipe[] = [
     new Recipe("Pasta", 
               "Red Sause Pasta"
-              ,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7DbKibZHxZmXQeNLc0iPe0V3UAFITibHGkflHEfcOjHWGm4tiBBkrJ2e9c6XlcWAquh0&usqp=CAU',
+              ,'https://images.aws.nestle.recipes/resized/52007da8aee0c1d4cdb98e2e5c9b03cd_Maggi_-_Easy_Creamy_Chicken_Pasta_1080_850.jpg',
                 [
                   new Ingredients('pasta penne',100),
                   new Ingredients('garlic',4),
@@ -30,8 +30,7 @@ export class RecipeService {
                 new Ingredients('Oregano',2),
                 new Ingredients('Small onion',2),
                 new Ingredients('Olive oil',2),
-                new Ingredients('Tomato sauce',1),
-                new Ingredients('Pepper powder',1),
+                new Ingredients('Tomato sauce',1)
               ])
   ];
 

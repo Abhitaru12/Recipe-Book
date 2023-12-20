@@ -1,4 +1,4 @@
-<div class="card mb-3" style="max-width: 400px;" (click)="onSelected()">
+<div class="card mb-3 clearfix" style="max-width: 400px;" [routerLink]="[index]" routerLinkActive="active">
   <div class="row g-0">
     <div class="col-md-4">
       <img [src]="recipe.imagePath" class="img-fluid rounded-start" style="padding: 7px;">
@@ -10,4 +10,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> 

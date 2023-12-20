@@ -38,6 +38,10 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  getRecipes(index : number){
+    return this.recipes[index];
+  }
+
   constructor(private slService : ShoppinglistService){
 
   }

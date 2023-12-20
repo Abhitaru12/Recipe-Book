@@ -1,6 +1,6 @@
 <div class="row" style="padding-top: 58px;">
     <div class="col-xs-12">
-        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-fluid rounded" style="max-height:200px;">
+        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-fluid rounded" style="max-height:200px; max-width: 200px;">
     </div>
 </div>
 
@@ -14,8 +14,8 @@
       <div class="btn-group">
         <button type="button" class="btn btn-primary" >
           <a (click)="onAddtoShoppingList()" style="cursor: pointer;">To Shopping List</a></button>&nbsp;
-        <button type="button" class="btn btn-group border" >Edit Recipe</button>&nbsp;
-        <button type="button" class="btn btn-danger" >Delete Recipe</button>
+        <button type="button" class="btn btn-group border" style="cursor: pointer;"(click)="onEditRecipe()" >Edit Recipe</button>&nbsp;
+        <button type="button" class="btn btn-danger" style="cursor: pointer;">Delete Recipe</button>
       </div>
     </div>
   </div>

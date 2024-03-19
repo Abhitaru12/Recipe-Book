@@ -1,1 +1,91 @@
-<p>recipe-edit works!</p>
+<div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+    <div class="col-xs-12">
+        <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success me-2" [disabled]="!recipeForm.valid">Save</button>
+                    <button type="button" class="btn btn-danger me-2" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" formControlName="name" class="form-control">
+                        <div class="">
+                            <small *ngIf="submitted || (recipeForm.controls['name'].touched && recipeForm.controls['name'].invalid)">
+                                <span class="text-danger" *ngIf="recipeForm.controls['name'].errors?.['required']">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    Name is required</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="imagePath">Image URL</label>
+                        <input type="text" id="imagePath" formControlName="imagePath" class="form-control" #imagePath>
+                        <div class="">
+                            <small *ngIf="submitted || (recipeForm.controls['imagePath'].touched && recipeForm.controls['imagePath'].invalid)">
+                                <span class="text-danger" *ngIf="recipeForm.controls['imagePath'].errors?.['required']">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    Image Path is required</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5 ">
+                    <img [src]="imagePath.value" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea type="text" id="description" formControlName="description" class="form-control"
+                            rows="5"></textarea>
+                        <div class="">
+                            <small *ngIf="submitted || (recipeForm.controls['description'].touched && recipeForm.controls['description'].invalid)">
+                                <span class="text-danger" *ngIf="recipeForm.controls['description'].errors?.['required']">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    Description is required</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="">
+                <div class="col-xs-12" formArrayName="ingredients">
+                    <div class="row" *ngFor="let ingredientCtrl of controls; let i = index" [formGroupName]="i"
+                        style="margin-top: 2px;">
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" formControlName="amount">
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-danger" (click)="onDeleteIngredient(i)">X</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-xs-12">
+                            <button class="btn btn-success" type="button" (click)="addIngredient()">Add
+                                Ingredient</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

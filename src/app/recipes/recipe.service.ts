@@ -11,8 +11,8 @@ export class RecipeService {
   recipeChanged = new Subject<Recipe[]>();
 
  private recipes : Recipe[] = [
-    new Recipe("Pasta", 
-              "Red Sause Pasta"
+    new Recipe("Red Sause Pasta", 
+              "Best Seller"
               ,'https://images.aws.nestle.recipes/resized/52007da8aee0c1d4cdb98e2e5c9b03cd_Maggi_-_Easy_Creamy_Chicken_Pasta_1080_850.jpg',
                 [
                   new Ingredients('pasta penne',100),
@@ -22,8 +22,8 @@ export class RecipeService {
                   new Ingredients('tomato',2),
                   new Ingredients('red chilli',1),
                 ]),
-    new Recipe("Pizza", 
-              "Framhouse Fresh Pizza",
+    new Recipe("Framhouse Fresh Pizza", 
+              "Handpicked Vegetables",
               'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/330px-Pizza-3007395.jpg',
               [
                 new Ingredients('Pizza Dough',1),

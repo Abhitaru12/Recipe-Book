@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top: 5px;">
                 <div class="col-sm-5 ">
                     <img [src]="imagePath.value" class="img-fluid">
                 </div>
@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea type="text" id="description" formControlName="description" class="form-control"
-                            rows="5"></textarea>
+                            rows="2"></textarea>
                         <div class="">
                             <small *ngIf="submitted || (recipeForm.controls['description'].touched && recipeForm.controls['description'].invalid)">
                                 <span class="text-danger" *ngIf="recipeForm.controls['description'].errors?.['required']">

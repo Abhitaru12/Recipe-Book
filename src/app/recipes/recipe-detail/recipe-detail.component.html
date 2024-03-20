@@ -1,12 +1,18 @@
-<div class="row" style="padding-top: 58px;">
-  <div class="col-xs-12">
+<div class="row" style="padding-top: 10px;">
+  <div class="col-12">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn" (click)="onCancel()"><h4>X</h4></button>
+    </div>
+  </div>
+  <div class="col-xs-12" style="margin-top: 11px;">
     <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-fluid rounded" style="height: 170px; width: 260px;">
   </div>
 </div>
 
+
 <div class="row">
   <div class="col-xs-12">
-    <h2> {{recipe.name}} </h2>
+    <h3> {{recipe.name}} </h3>
   </div>
 </div>
 <div class="row">

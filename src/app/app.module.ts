@@ -12,12 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppinglistService } from './shopping-list/shoppinglist.service';
 import { AppRoutingMOdule } from './app-routing.module';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './auth/auth.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { AuthInterceptorServiceService } from './shared/auth-interceptor-service.service';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -45,7 +47,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     FormsModule,
     CommonModule
   ],
-  providers: [ShoppinglistService, RecipeService],
+  providers: [ShoppinglistService, RecipeService, AuthService , {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptorServiceService, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

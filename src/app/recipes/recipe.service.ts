@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredients } from '../shared/ingredient.model';
 import { ShoppinglistService } from '../shopping-list/shoppinglist.service';
-import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Subject, exhaustMap, take } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,10 +38,11 @@ export class RecipeService {
   ];
 
   constructor(private slService: ShoppinglistService,
-    private http: HttpClient) { }
+              private http: HttpClient,
+              private authService : AuthService) { }
 
   getRecipe(): any {
-    return this.fetchReccipe();
+    return this.fetchRecipe();
   }
 
   storeRecipe() {
@@ -48,12 +50,13 @@ export class RecipeService {
     return this.http.put('https://recipe-book-9f2c7-default-rtdb.firebaseio.com/recipes.json', recipe);
   }
 
-  fetchReccipe() {
-    this.http.get<Recipe[]>('https://recipe-book-9f2c7-default-rtdb.firebaseio.com/recipes.json').subscribe(recipe => {
-      // console.log(recipe);
-      this.setRecipe(recipe)
+  fetchRecipe() {
+     return this.http.get<Recipe[]>('https://recipe-book-9f2c7-default-rtdb.firebaseio.com/recipes.json').pipe(
+    ).subscribe(recipe => {
+      this.setRecipe(recipe);
     });
   }
+  
 
   setRecipe(recipe : Recipe[]){
     this.recipes = recipe;

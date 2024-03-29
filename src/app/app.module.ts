@@ -34,7 +34,7 @@ import { AuthService } from './auth/auth.service';
     ShoppingEditComponent,
     RecipeEditComponent,
     AuthComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ import { AuthService } from './auth/auth.service';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [ShoppinglistService, RecipeService, AuthService , {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptorServiceService, multi : true}],
   bootstrap: [AppComponent]
